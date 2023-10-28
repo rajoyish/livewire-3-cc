@@ -13,6 +13,8 @@ class BookIndex extends Component
     {
         $this->form->validate();
 
+        sleep(3); // artificial  3 seconds loading time before accessing data
+
         $this->form->create();
     }
 
