@@ -22,7 +22,7 @@
                 </div>
                 <div class="mt-4">
                     <x-primary-button type="submit" class="disabled:opacity-50">
-                        <x-loading-icon wire:loading.delay.long class="animate-spin w-4" />
+                        <x-loading-icon wire:loading.delay.long />
                         <span wire:loading.remove.delay.long>Create a Book</span>
                     </x-primary-button>
                 </div>

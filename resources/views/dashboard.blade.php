@@ -7,7 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-         <livewire:book-index />
+            <livewire:event-example />
+            <livewire:book-index />
         </div>
     </div>
 </x-app-layout>
