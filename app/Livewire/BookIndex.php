@@ -2,21 +2,20 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\BookForm;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class BookIndex extends Component
 {
-    public BookForm $form;
+    // #[On('book.created')]
+    // public function bookCreated(int $bookId)
+    // {
+    //    dd($bookId);
+    // }
 
-    public function submit()
-    {
-        $this->form->validate();
-
-        sleep(3); // artificial  3 seconds loading time before accessing data
-
-        $this->form->create();
-    }
+    protected $listeners = [
+        'book.created' => '$refresh',
+    ];
 
     public function render()
     {
