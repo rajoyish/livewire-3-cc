@@ -18,12 +18,15 @@ class BookForm extends Form
     #[Rule('min:5')]
     public string $author = '';
 
+    #[Rule('nullable')]
+    public ?string $notes = '';
+
     public function setBook(Book $book)
     {
         $this->book = $book;
 
         $this->fill(
-            $book->only('title', 'author')
+            $book->only('title', 'author', 'notes')
         );
     }
 
@@ -31,6 +34,15 @@ class BookForm extends Form
     {
         $this->book->update(
             $this->only('title', 'author')
+        );
+
+        $this->reset();
+    }
+
+    public function updateNotes()
+    {
+        $this->book->update(
+            $this->only('notes')
         );
 
         $this->reset();
