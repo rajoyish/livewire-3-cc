@@ -5,9 +5,12 @@ namespace App\Livewire;
 use App\Models\Book;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class BookIndex extends Component
 {
+    use WithPagination;
+
     // #[On('book.created')]
     // public function bookCreated(int $bookId)
     // {
@@ -30,7 +33,7 @@ class BookIndex extends Component
     public function render()
     {
         return view('livewire.book-index', [
-            'books' => auth()->user()->books()->latest()->get(),
+            'books' => auth()->user()->books()->latest()->paginate(3),
         ]);
     }
 }
