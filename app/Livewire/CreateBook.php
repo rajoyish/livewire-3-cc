@@ -20,6 +20,10 @@ class CreateBook extends Component
 
         // $this->dispatch('book.created', $book->id);
         $this->dispatch('book.created');
+
+        $this->dispatch('alert', [
+            'body' => 'The Book "'.$book->title.'" was created.',
+        ]);
     }
 
     public function render()
