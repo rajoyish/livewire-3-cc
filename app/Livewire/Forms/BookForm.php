@@ -44,8 +44,6 @@ class BookForm extends Form
         $this->book->update(
             $this->only('notes')
         );
-
-        $this->reset();
     }
 
     public function create()

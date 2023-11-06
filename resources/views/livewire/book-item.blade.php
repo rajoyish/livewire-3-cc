@@ -5,13 +5,12 @@
         @else
             <h2 class="text-lg font-bold leading-snug">{{ $book->title }}</h2>
             <p>by {{ $book->author }}</p>
-            <p class="mt-4">{{ $book->notes }}</p>
         @endif
 
         <div>
             <x-input-label class="sr-only">Notes</x-input-label>
-            <textarea wire:model.live="form.notes" id="notes" rows="4"
-                class="border-gray-300 w-full focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" 
+            <textarea wire:model.live.debounce.500ms="form.notes" id="notes" rows="4"
+                class="border-gray-300 w-full focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                 placeholder="Your notes for this book."></textarea>
         </div>
 
